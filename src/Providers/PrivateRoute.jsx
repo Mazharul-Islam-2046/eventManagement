@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 const PrivateRoute = ({children}) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
-    console.log(location);
 
     if (loading) {
         return <div className='w-full h-[100vh] flex justify-center items-center'><span className="loading loading-infinity loading-lg"></span></div>

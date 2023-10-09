@@ -1,44 +1,37 @@
 import { useContext } from "react";
 import Navbar from "../Components/Navbar";
-import {Link} from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/authProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  const handleRegistration = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const name = form.get("name");
+    const photo_url = form.get("photo_url");
+    const email = form.get("email");
+    const password = form.get("password");
+    console.log(name, photo_url);
 
-    const { createUser } = useContext(AuthContext);
-
-    const handleRegistration= e => {
-            e.preventDefault()
-            const form = new FormData(e.currentTarget);
-            const name = form.get('name');
-            const photo_url = form.get('photo_url');
-            const email = form.get('email');
-            const password = form.get('password');
-            console.log(name, photo_url);
-
-
-
-            createUser(email, password)
-            .then(result => {
-                result.user.photo_url = photo_url
-                result.user.name = name
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
-
-
-
-
-
-
+    createUser(email, password)
+      .then((result) => {
+        navigate(location?.state ? location.state : "/");
+        result.user.photo_url = photo_url;
+        result.user.name = name;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div>
       <div className="bg-fuchsia-600">
-      <Navbar />
+        <Navbar />
       </div>
       <div className="flex flex-col justify-center items-center w-full py-16">
         <h2 className="text-4xl mb-6 font-bold">Register</h2>
@@ -92,11 +85,16 @@ const Register = () => {
                 name="password"
               />
               <label className="label">
-                <Link to="/login">Already have an account? <span className="text-blue-600 font-semibold">Login</span></Link>
+                <Link to="/login">
+                  Already have an account?{" "}
+                  <span className="text-blue-600 font-semibold">Login</span>
+                </Link>
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-fuchsia-500 text-white">Register</button>
+              <button className="btn bg-fuchsia-500 text-white">
+                Register
+              </button>
             </div>
           </form>
         </div>

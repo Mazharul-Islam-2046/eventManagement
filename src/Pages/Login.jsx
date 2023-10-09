@@ -9,7 +9,6 @@ const Login = () => {
 
     const {signIn} = useContext(AuthContext);
     const location = useLocation();
-    console.log(`location in the login page ${JSON.stringify(location)}`);
     const navigate = useNavigate()
 
 
