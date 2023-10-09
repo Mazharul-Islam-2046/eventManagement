@@ -4,6 +4,7 @@ import { AuthContext } from "../Providers/authProvider";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
+  console.log(user);
   console.log(user.photo_url);
 
   return (
@@ -15,7 +16,7 @@ const Profile = () => {
             <img src={user.photo_url} />
           </div>
         </div>
-        <div className="text-center">
+        <div className="text-center w-full border-2 p-4">
           <h2>{`Name: ${user.name}` }</h2>
           <h2>{`email: ${user.email}`}</h2>
         </div>
