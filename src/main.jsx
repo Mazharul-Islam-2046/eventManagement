@@ -14,11 +14,13 @@ import AuthProvider from "./Providers/authProvider";
 import PrivateRoute from "./Providers/PrivateRoute";
 import Profile from "./Pages/Profile";
 import ServiceInDetail from "./Pages/ServiceInDetail";
+import Error from "./Pages/error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement:<Error/>,
     children: [
       {
         path: "/",

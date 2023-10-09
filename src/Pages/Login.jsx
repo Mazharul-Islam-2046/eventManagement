@@ -3,11 +3,19 @@ import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import { AuthContext } from "../Providers/authProvider";
+import { FcGoogle } from "react-icons/fc";
+import { AiFillGithub } from "react-icons/ai";
+import toast, { Toaster } from 'react-hot-toast';
+
+
+
+const login = () => toast('Loggedin sussesfully');
+const errorToast = (error) => toast(error);
 
 const Login = () => {
 
 
-    const {signIn} = useContext(AuthContext);
+    const {signIn, googleSignIn, githubSignIn} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate()
 
@@ -21,13 +29,36 @@ const Login = () => {
 
         signIn(email, password)
         .then (result => {
-            console.log(result.user);
             navigate(location?.state ? location.state : '/');
+            result && login()
         })
         .catch (error =>{
-            console.error(error)
+          errorToast(error)
         })
     }
+
+    const handleSignInGoogle = () => {
+        googleSignIn()
+        .then(result => {
+          navigate(location?.state ? location.state : '/');
+          result && login()
+        })
+        .catch(error => {
+          errorToast(error)
+        })
+    }
+
+    const handleSignInGithub = ( ()=> {
+        githubSignIn()
+        .then(result => {
+          navigate(location?.state ? location.state : '/');
+          result && login()
+        })
+        .catch(error => {
+          errorToast(error)
+        })
+    })
+
 
 
 
@@ -75,6 +106,13 @@ const Login = () => {
               <button className="btn bg-purple-600 text-white">Login</button>
             </div>
           </form>
+          <div  className="w-full flex justify-center py-4 mb-5 cursor-pointer space-x-3">
+          <FcGoogle onClick={handleSignInGoogle}/>
+          <AiFillGithub onClick={handleSignInGithub}/>
+
+          </div>
+
+          <Toaster></Toaster>
         </div>
       </div>
 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Newsletter = () => {
     return (
         <div className='w-4/5 mb-20 border-2 border-gray-300 mx-auto text-center p-10 bg-yellow-50 '>

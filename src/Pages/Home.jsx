@@ -3,6 +3,7 @@ import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import OurServices from "../Components/OurServices";
 import Newsletter from "../Components/Newsletter";
+import OurPartners from "../Components/OurPartners";
 
 const Home = () => {
     const ourServicesData = useLoaderData();
@@ -11,6 +12,7 @@ const Home = () => {
         <div>
             <Header/>
             <OurServices ourSevicesData={ourServicesData}/> 
+            <OurPartners/>
             <Newsletter/>
             <Footer/>
         </div>

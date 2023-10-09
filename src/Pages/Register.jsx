@@ -2,6 +2,12 @@ import { useContext } from "react";
 import Navbar from "../Components/Navbar";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/authProvider";
+import toast, { Toaster } from "react-hot-toast";
+
+
+
+
+const email_reg = () => toast('Registered sussesfully');
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -22,6 +28,7 @@ const Register = () => {
         navigate(location?.state ? location.state : "/");
         result.user.photo_url = photo_url;
         result.user.name = name;
+        email_reg()
       })
       .catch((error) => {
         console.log(error);
@@ -97,6 +104,7 @@ const Register = () => {
               </button>
             </div>
           </form>
+          <Toaster></Toaster>
         </div>
       </div>
     </div>

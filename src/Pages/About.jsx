@@ -32,9 +32,9 @@ const About = () => {
           Our Story
           </h1>
           <p className="text-lg leading-8 font-medium">
-          At Elegant Occasions, we believe that every life is a collection of beautiful moments, and it's our mission to make those moments extraordinary. Founded by Emily Anderson, a visionary in the world of event management, our journey began with a passion for turning ordinary events into extraordinary experiences.
+          At Elegant Occasions, we believe that every life is a collection of beautiful moments, and it is our mission to make those moments extraordinary. Founded by Emily Anderson, a visionary in the world of event management, our journey began with a passion for turning ordinary events into extraordinary experiences.
 
-With over a decade of experience in the industry, Emily and her dedicated team have crafted a reputation for excellence and creativity. We've had the privilege of bringing countless smiles, tears of joy, and memories that last a lifetime to our clients.
+With over a decade of experience in the industry, Emily and her dedicated team have crafted a reputation for excellence and creativity. We have had the privilege of bringing countless smiles, tears of joy, and memories that last a lifetime to our clients.
 
 
           </p>
