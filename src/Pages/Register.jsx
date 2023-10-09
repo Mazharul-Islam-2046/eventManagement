@@ -5,6 +5,7 @@ import { AuthContext } from "../Providers/authProvider";
 
 const Register = () => {
 
+
     const { createUser } = useContext(AuthContext);
 
     const handleRegistration= e => {
@@ -20,7 +21,8 @@ const Register = () => {
 
             createUser(email, password)
             .then(result => {
-                console.log(result.user);
+                result.user.photo_url = photo_url
+                result.user.name = name
             })
             .catch(error => {
                 console.log(error);
@@ -90,7 +92,7 @@ const Register = () => {
                 name="password"
               />
               <label className="label">
-                <Link>Already have an account? <span className="text-blue-600 font-semibold">Login</span></Link>
+                <Link to="/login">Already have an account? <span className="text-blue-600 font-semibold">Login</span></Link>
               </label>
             </div>
             <div className="form-control mt-6">

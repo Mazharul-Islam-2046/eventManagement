@@ -9,7 +9,8 @@ const Login = () => {
 
     const {signIn} = useContext(AuthContext);
     const location = useLocation();
-    const navigate = useNavigate
+    console.log(`location in the login page ${JSON.stringify(location)}`);
+    const navigate = useNavigate()
 
 
 
@@ -40,7 +41,8 @@ const Login = () => {
       <div className="bg-purple-700">
         <Navbar></Navbar>
       </div>
-      <div className="w-full flex justify-center items-center h-[80vh]">
+      <div className="w-full flex flex-col justify-center items-center h-[80vh]">
+        <h2 className="text-4xl mb-10 font-bold">Login</h2>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">

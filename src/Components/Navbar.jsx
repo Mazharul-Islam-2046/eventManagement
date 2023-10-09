@@ -1,5 +1,11 @@
+import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { AuthContext } from "../Providers/authProvider";
 const Navbar = () => {
+
+  const {logOut, user} = useContext(AuthContext);
+
+
   return (
     <div>
       <div className="navbar bg-white bg-opacity-30 py-5 px-16 flex items-center">
@@ -49,14 +55,16 @@ const Navbar = () => {
             <li>
             <NavLink className={({isActive}) => isActive? "rounded-lg px-3 py-2 bg-gray-900 text-white" : "rounded-lg px-3 py-2 text-slate-100 font"} to="/blogs">Blogs</NavLink>
             </li>
-            <li>
-            <NavLink className={({isActive}) => isActive? "rounded-lg px-3 py-2 bg-gray-900 text-white" : "rounded-lg px-3 py-2 text-slate-100 font"} to="/profile">Profile</NavLink>
-            </li>
+            {
+              user && <li>
+              <NavLink className={({isActive}) => isActive? "rounded-lg px-3 py-2 bg-gray-900 text-white" : "rounded-lg px-3 py-2 text-slate-100 font"} to="/profile">Profile</NavLink>
+              </li>
+            }
           </ul>
         </div>
         <div className="navbar-end">
           {
-            <Link className="rounded-lg px-4 py-1 border-2 border-purple-950 font-semibold text-purple-200" to="/login">Login</Link>
+            user? <Link className="rounded-lg px-4 py-1 border-2 border-purple-950 font-semibold text-purple-200" onClick={logOut} to="/login">Signout</Link> : <Link className="rounded-lg px-4 py-1 border-2 border-purple-950 font-semibold text-purple-200" to="/login">Login</Link>
           }
         </div>
       </div>
