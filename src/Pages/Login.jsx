@@ -29,8 +29,8 @@ const Login = () => {
 
         signIn(email, password)
         .then (result => {
-            navigate(location?.state ? location.state : '/');
-            result && login()
+          result && login()
+          navigate(location?.state ? location.state : '/');
         })
         .catch (error =>{
           errorToast(error)
@@ -40,8 +40,8 @@ const Login = () => {
     const handleSignInGoogle = () => {
         googleSignIn()
         .then(result => {
-          navigate(location?.state ? location.state : '/');
           result && login()
+          navigate(location?.state ? location.state : '/');
         })
         .catch(error => {
           errorToast(error)
@@ -51,8 +51,8 @@ const Login = () => {
     const handleSignInGithub = ( ()=> {
         githubSignIn()
         .then(result => {
-          navigate(location?.state ? location.state : '/');
           result && login()
+          navigate(location?.state ? location.state : '/');
         })
         .catch(error => {
           errorToast(error)
