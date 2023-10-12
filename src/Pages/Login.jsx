@@ -29,22 +29,22 @@ const Login = () => {
 
         signIn(email, password)
         .then (result => {
-          result && login()
-          navigate(location?.state ? location.state : '/');
+          result && navigate(location?.state ? location.state : '/');
+          login();
         })
         .catch (error =>{
-          errorToast(error)
+          errorToast(error?.code)
         })
     }
 
     const handleSignInGoogle = () => {
         googleSignIn()
         .then(result => {
-          result && login()
-          navigate(location?.state ? location.state : '/');
+          result && navigate(location?.state ? location.state : '/');
+          login();
         })
         .catch(error => {
-          errorToast(error)
+          errorToast(error?.code)
         })
     }
 
@@ -55,7 +55,7 @@ const Login = () => {
           navigate(location?.state ? location.state : '/');
         })
         .catch(error => {
-          errorToast(error)
+          errorToast(error?.code)
         })
     })
 
@@ -68,6 +68,7 @@ const Login = () => {
 
   return (
     <>
+    <Toaster></Toaster>
       <div className="bg-purple-700">
         <Navbar></Navbar>
       </div>
@@ -111,8 +112,6 @@ const Login = () => {
           <AiFillGithub onClick={handleSignInGithub}/>
 
           </div>
-
-          <Toaster></Toaster>
         </div>
       </div>
 

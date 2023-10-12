@@ -31,7 +31,7 @@ const Register = () => {
         email_reg()
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error?.code);
       });
   };
 

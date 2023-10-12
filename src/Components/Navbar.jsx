@@ -19,6 +19,7 @@ const Navbar = () => {
 
   return (
     <div>
+      <Toaster></Toaster>
       <div className="navbar bg-white bg-opacity-30 py-5 px-16 flex items-center">
         <div className="navbar-start">
           <div className="dropdown">
